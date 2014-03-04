@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 <meta charset="utf-8">
-<title>Bingolueprint</title>
+<title>Blueprint</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Blueprint</title>
+    <link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/solarized-light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/prettify-solarized.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" charset="utf-8"> 
+
+<!-- WMF Changes:
+
+- Added 4 linked resources above
+
+- To Solarize the Prettified code, I had to replace <pre> with <pre class="prettyprint"> in the body below.  For some reason, I could not work around by simply trying to style <pre>
+
+- Commented out Plumbing Header in TOC just to shorten length of non-scrolling MAN panel
+
+- Commented out Google analytics while working locally
+
+- Style credits added to footer
+
+-->
+
 </head>
+<body>
 <body><p>more</p>
 {{ content }}
 <script type="text/javascript">
@@ -17,5 +41,16 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
+Style credits:
+<a target="_blank" href="http://thomasf.github.io/solarized-css/">Solarized CSS</a>
+<a target="_blank" href="http://subtech.g.hatena.ne.jp/h2u/20110408/1302198319">Solarized Prettify</a>
+<a target="_blank" href="https://code.google.com/p/google-code-prettify/">Code Prettify</a>
+<a target="_blank" href="http://stackoverflow.com/questions/12232675/how-to-make-table-of-contents-floating">Floating TOC</a>
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+
+<!-- Magnific Popup core JS file -->
+<script src="js/magnific-popup.js"></script> 
+<script src="js/magnific-popup-wmf.js"></script> 
 </body>
 </html>
