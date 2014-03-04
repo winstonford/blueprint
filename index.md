@@ -8,8 +8,8 @@ Blueprint
 =========
 
 Blueprint is a simple configuration management tool that reverse-engineers servers.  It figures out what you've done manually, stores it locally in a Git repository, generates code that's able to recreate your efforts, and helps you deploy those changes to production.
-<div id="toca-switch">TOC
-<div id="toca-panel">
+<div id='toca-switch'>TOC
+<div id='toca-panel'>
 <h2 id='toc'>Table of contents</h2>
 <ol>
 <li><a href='#installation'>Installation</a></li>
@@ -20,8 +20,8 @@ Blueprint is a simple configuration management tool that reverse-engineers serve
 <li><a href='#endpoints'>Blueprint Server Endpoints</a></li>
 </ul>
 </div></div>
-<div id="man-switch">MAN
-<div id="man-panel">
+<div id='man-switch'>MAN
+<div id='man-panel'>
 <h2 id='man'>Manuals</h2>
 <ul>
 <li><a href='http://devstructure.github.com/blueprint/blueprint-show-sources.1.html'><code>blueprint-show-sources</code>(1)</a>: show source tarballs in a blueprint.</li>
