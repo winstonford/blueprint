@@ -2,71 +2,125 @@
 layout: default
 ---
 
-
 Blueprint
 =========
 
 Blueprint is a simple configuration management tool that reverse-engineers servers.  It figures out what you've done manually, stores it locally in a Git repository, generates code that's able to recreate your efforts, and helps you deploy those changes to production.
 <div id="toca-switch">TOC
 <div id="toca-panel">
-<h2 id="toc">Table of contents</h2>
+<h2 id='toc'>Table of contents</h2>
+<ol>
+<li><a class="video" title="Philosophy" href="http://youtu.be/CUARNcqDVoU?t=2m2s"><img src="img/youtube-favicon.png" width="16" height="16" border="0"></a> <a href='#philosophy'>Philosophy</a></li>
 
-1.  [Philosophy](#philosophy)
-2.  [Installation](#installation)
-3.  [Reverse-engineering systems with blueprint-create](#create)
-4.  [Inspecting blueprints](#inspect)
-5.  [Ignoring particular resources](#ignore)
-6.  [Rules files and blueprint-rules](#rules)
-7.  [Diffing, splitting and pruning existing blueprints](#diff-split-prune)
-8.  [Rendering templates of configuration files](#templates)
-9. [Controlling service restart conditions](#services)
-10. [Generating POSIX shell scripts](#sh)
-11. [Sharing and distributing blueprints](#push-pull)
-12. [Generating Puppet modules and Chef cookbooks](#puppet-chef)
-13. [Integrating with AWS CloudFormation](#cloudformation)
-14. [Deploying your application with Blueprint](#deploy)
-15. [Local Git repository](#git)
-16. [Running your own Blueprint Server](#server)
-17. [Blueprint Server Protocols](#protocols)
-18. [Blueprint Server Endpoints](#endpoints)
-19. [Contributing to Blueprint](#contributing)
-20. [Alternatives to Blueprint](#alternatives)
+<li><a href='#installation'>Installation</a></li>
+
+<li><a href='#create'>Reverse-engineering systems with blueprint-create</a></li>
+
+<li><a href='#inspect'>Inspecting blueprints</a></li>
+
+<li><a href='#ignore'>Ignoring particular resources</a></li>
+
+<li><a href='#rules'>Rules files and blueprint-rules</a></li>
+
+<li><a href='#diff-split-prune'>Diffing, splitting and pruning existing blueprints</a></li>
+
+<li><a href='#templates'>Rendering templates of configuration files</a></li>
+
+<li><a href='#services'>Controlling service restart conditions</a></li>
+
+<li><a class="video" title="Deployment" href="http://youtu.be/CUARNcqDVoU?t=23m56s"><img src="img/youtube-favicon.png" width="16" height="16" border="0"></a> <a href='#sh'>Generating POSIX shell scripts</a></li>
+
+<li><a href='#push-pull'>Sharing and distributing blueprints</a></li>
+
+<li><a class="video" title="Puppet-Chef" href="http://youtu.be/CUARNcqDVoU?t=25m46s"><img src="img/youtube-favicon.png" width="16" height="16" border="0"></a> <a href='#puppet-chef'>Generating Puppet modules and Chef cookbooks</a></li>
+
+<li><a class="video" title="AWS" href="http://youtu.be/CUARNcqDVoU?t=28m43s"><img src="img/youtube-favicon.png" width="16" height="16" border="0"></a> <a href='#cloudformation'>Integrating with AWS CloudFormation</a></li>
+
+<li><a href='#deploy'>Deploying your application with Blueprint</a></li>
+
+<li><a href='#git'>Local Git repository</a></li>
+
+<li><a href='#server'>Running your own Blueprint Server</a></li>
+
+<li><a href='#protocols'>Blueprint Server Protocols</a></li>
+
+<li><a href='#endpoints'>Blueprint Server Endpoints</a></li>
+
+<li><a href='#contributing'>Contributing to Blueprint</a></li>
+
+<li><a href='#alternatives'>Alternatives to Blueprint</a></li>
+</ol>
+<h2 id='apis'>APIs</h2>
+
+<ul>
+<li><a href='#protocols'>Blueprint Server Protocols</a></li>
+
+<li><a href='#endpoints'>Blueprint Server Endpoints</a></li>
+</ul>
+
 </div></div>
+
 <div id="man-switch">MAN
 <div id="man-panel">
-<h2 id="man">Manuals</h2>
+<h2 id='man'>Manuals</h2>
+<ul>
+<li><a href='http://devstructure.github.com/blueprint/blueprint-list.1.html'><code>blueprint-list</code>(1)</a>: list all blueprints.</li>
 
-* [`blueprint-list`(1)](http://devstructure.github.com/blueprint/blueprint-list.1.html): list all blueprints.
-* [`blueprint-create`(1)](http://devstructure.github.com/blueprint/blueprint-create.1.html): create a blueprint.
-* [`blueprint-rules`(1)](http://devstructure.github.com/blueprint/blueprint-rules.1.html): create a blueprint from a blueprint-rules file.
-* [`blueprint-show`(1)](http://devstructure.github.com/blueprint/blueprint-show.1.html): generate code from a blueprint.
-* [`blueprint-diff`(1)](http://devstructure.github.com/blueprint/blueprint-diff.1.html): save the difference between two blueprints.
-* [`blueprint-split`(1)](http://devstructure.github.com/blueprint/blueprint-split.1.html): split one blueprint into two others interactively.
-* [`blueprint-prune`(1)](http://devstructure.github.com/blueprint/blueprint-prune.1.html): select a subset of resources interactively.
-* [`blueprint-template`(1)](http://devstructure.github.com/blueprint/blueprint-template.1.html): render mustache.sh templates locally.
-* [`blueprint-apply`(1)](http://devstructure.github.com/blueprint/blueprint-apply.1.html): run a blueprint's generated shell code.
-* [`blueprint-push`(1)](http://devstructure.github.com/blueprint/blueprint-push.1.html): push a blueprint to the Internet.
-* [`blueprint-pull`(1)](http://devstructure.github.com/blueprint/blueprint-pull.1.html): pull a blueprint from the Internet.
-* [`blueprint-destroy`(1)](http://devstructure.github.com/blueprint/blueprint-destroy.1.html): destroy a blueprint.
-* [`blueprint`(5)](http://devstructure.github.com/blueprint/blueprint.5.html): Blueprint JSON format.
-* [`blueprintignore`(5)](http://devstructure.github.com/blueprint/blueprintignore.5.html): ignore specific files when creating blueprints.
-* [`blueprint-rules`(5)](http://devstructure.github.com/blueprint/blueprint-rules.5.html): enumerate resources in blueprints.
-* [`blueprint.cfg`(5)](http://devstructure.github.com/blueprint/blueprint.cfg.5.html): centralized blueprint service configuration.
-* [`blueprint-template`(5)](http://devstructure.github.com/blueprint/blueprint-template.5.html): `mustache.sh` template language syntax.
-* [`blueprint-template`(7)](http://devstructure.github.com/blueprint/blueprint-template.7.html): built-in template data.
-* [`blueprint`(7)](http://devstructure.github.com/blueprint/blueprint.7.html): Blueprint Python library.
+<li><a href='http://devstructure.github.com/blueprint/blueprint-create.1.html'><code>blueprint-create</code>(1)</a>: create a blueprint.</li>
 
-### Plumbing
+<li><a href='http://devstructure.github.com/blueprint/blueprint-rules.1.html'><code>blueprint-rules</code>(1)</a>: create a blueprint from a blueprint-rules file.</li>
 
-* [`blueprint-git`(1)](http://devstructure.github.com/blueprint/blueprint-git.1.html): low-level access to blueprints.
-* [`blueprint-show-files`(1)](http://devstructure.github.com/blueprint/blueprint-show-files.1.html): show files in a blueprint.
-* [`blueprint-show-ignore`(1)](http://devstructure.github.com/blueprint/blueprint-show-ignore.1.html): show `blueprintignore`(5) rules from a blueprint.
-* [`blueprint-show-packages`(1)](http://devstructure.github.com/blueprint/blueprint-show-packages.1.html): show packages in a blueprint.
-* [`blueprint-show-services`(1)](http://devstructure.github.com/blueprint/blueprint-show-services.1.html): show services in a blueprint.
-* [`blueprint-show-sources`(1)](http://devstructure.github.com/blueprint/blueprint-show-sources.1.html): show source tarballs in a blueprint.
-* 
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show.1.html'><code>blueprint-show</code>(1)</a>: generate code from a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-diff.1.html'><code>blueprint-diff</code>(1)</a>: save the difference between two blueprints.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-split.1.html'><code>blueprint-split</code>(1)</a>: split one blueprint into two others interactively.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-prune.1.html'><code>blueprint-prune</code>(1)</a>: select a subset of resources interactively.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-template.1.html'><code>blueprint-template</code>(1)</a>: render mustache.sh templates locally.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-apply.1.html'><code>blueprint-apply</code>(1)</a>: run a blueprint&#8217;s generated shell code.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-push.1.html'><code>blueprint-push</code>(1)</a>: push a blueprint to the Internet.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-pull.1.html'><code>blueprint-pull</code>(1)</a>: pull a blueprint from the Internet.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-destroy.1.html'><code>blueprint-destroy</code>(1)</a>: destroy a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint.5.html'><code>blueprint</code>(5)</a>: Blueprint JSON format.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprintignore.5.html'><code>blueprintignore</code>(5)</a>: ignore specific files when creating blueprints.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-rules.5.html'><code>blueprint-rules</code>(5)</a>: enumerate resources in blueprints.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint.cfg.5.html'><code>blueprint.cfg</code>(5)</a>: centralized blueprint service configuration.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-template.5.html'><code>blueprint-template</code>(5)</a>: <code>mustache.sh</code> template language syntax.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-template.7.html'><code>blueprint-template</code>(7)</a>: built-in template data.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint.7.html'><code>blueprint</code>(7)</a>: Blueprint Python library.</li>
+<!-- </ul>
+
+<h3 id='plumbing'>Plumbing</h3>
+
+<ul>-->
+<li><a href='http://devstructure.github.com/blueprint/blueprint-git.1.html'><code>blueprint-git</code>(1)</a>: low-level access to blueprints.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show-files.1.html'><code>blueprint-show-files</code>(1)</a>: show files in a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show-ignore.1.html'><code>blueprint-show-ignore</code>(1)</a>: show <code>blueprintignore</code>(5) rules from a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show-packages.1.html'><code>blueprint-show-packages</code>(1)</a>: show packages in a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show-services.1.html'><code>blueprint-show-services</code>(1)</a>: show services in a blueprint.</li>
+
+<li><a href='http://devstructure.github.com/blueprint/blueprint-show-sources.1.html'><code>blueprint-show-sources</code>(1)</a>: show source tarballs in a blueprint.</li>
+</ul>
+
+
 </div></div>
-
 APIs
 ----
 
