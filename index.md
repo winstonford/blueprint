@@ -2,6 +2,8 @@
 layout: default
 ---
 
+kram
+
 Blueprint
 =========
 
