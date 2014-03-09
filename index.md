@@ -59,13 +59,6 @@ Blueprint is a simple configuration management tool that reverse-engineers serve
 * [`blueprint-show-services`(1)](http://devstructure.github.com/blueprint/blueprint-show-services.1.html): show services in a blueprint.
 * [`blueprint-show-sources`(1)](http://devstructure.github.com/blueprint/blueprint-show-sources.1.html): show source tarballs in a blueprint.
 
-APIs
-----
-
-* [Blueprint Server Protocols](#protocols)
-* [Blueprint Server Endpoints](#endpoints)
-
-----
 
 <h1 id="philosophy">Philosophy</h1>
 
