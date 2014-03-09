@@ -6,28 +6,6 @@ margin-left: auto;
 margin-right: auto;
   
 }
-h1:nth-of-type(1)
-    {
-    font-family:'Conv_SaucerBB'; 
-    color: rgba(50, 88, 201, 0.5);
-
-    /*color: #3258C9;*/
-    font-size: 380%;
-    }
-
-    h1
-    {
-    font-family:'Conv_Draftsman'; 
-    text-transform: uppercase;
-    font-size: 200%;
-    
-    }
-    h2
-    {
-    font-size: 180%;
-    
-    }  
-
 
 
 /* toc header */
