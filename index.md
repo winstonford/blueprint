@@ -30,6 +30,7 @@ Blueprint is a simple configuration management tool that reverse-engineers serve
 19. [Contributing to Blueprint](#contributing)
 20. [Alternatives to Blueprint](#alternatives)
 
+
 ### MAN
 
 * [`blueprint-list`(1)](http://devstructure.github.com/blueprint/blueprint-list.1.html): list all blueprints.
