@@ -60,7 +60,8 @@ Blueprint is a simple configuration management tool that reverse-engineers serve
 * [`blueprint-show-sources`(1)](http://devstructure.github.com/blueprint/blueprint-show-sources.1.html): show source tarballs in a blueprint.
 
 
-<h1 id="philosophy">Philosophy</h1>
+Philosophy
+----------
 
 Blueprint was born out of frustration with development environments, deployment processes, and the complexity of configuration management systems.
 
