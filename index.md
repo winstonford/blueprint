@@ -7,8 +7,6 @@ Blueprint
 
 Blueprint is a simple configuration management tool that reverse-engineers servers.  Using python, Blueprint looks at what has been done with package managers and automatically drafts a blueprint of the server environment in json.  The blueprint includes version numbers of installed apps and services as well as their configurations.  For instance, in the case of a webserver, Blueprint diffs the main conf, any virtual host confs, and mod or plugin confs against the stock configs that install with that server version, and it stores your custom server configs.  Blueprints are stored locally in a git repo.  To create a exact copy of your server environment, push or pull a blueprint onto another server and run it.  The other server does not need to have Blueprint installed. Blueprints can also exported as Chef Recipes and Puppet Manifestos.  Currently Blueprint does not draft users or groups.
 
-It figures out what you've done manually, stores it locally in a Git repository, generates code that's able to recreate your efforts, and helps you deploy those changes to production.
-
 ### TOC
 
 1.  [Philosophy](#philosophy)
